@@ -10,13 +10,27 @@ span {
   padding: 1px;
 }
 
-/* Developed by Alex Zolotarov */
+$color1: #86FEB6;
+$color2: #C25F5F;
+$color3: #984480;
 
+.card__purple-btn {
+  background: $color3;
+  color: #fff;
+}
+
+.card__defualt-btn {
+  background: $color2;
+  color: #fff;
+}
+
+/* Developed by Alex Zolotarov */
 
 .wrapper {
   display: grid;
   position: relative;
   max-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Container */
@@ -147,6 +161,7 @@ span {
 }
 
 /* Animations */
+
 @keyframes rgb-name {
   0% {
     color: #77d183;
@@ -185,12 +200,21 @@ span {
   }
 }
 
-@keyframes slideHome {
+@keyframes slideLeftHome {
   0% {
     transform: translate(0, 0);
   }
   100% {
     transform: translate(-100%, 0);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
@@ -230,7 +254,7 @@ span {
 }
 
 .about-home {
-  animation: slideHome .8s ease;
+  animation: slideLeftHome .8s ease;
   animation-fill-mode: forwards;
 }
 
@@ -306,13 +330,6 @@ span {
   max-width: 720px
 }
 
-.about__buttons {
-  align-self: start;
-  justify-self: center;
-  grid-row: 3 / 4;
-  grid-column: 2 / 3;
-}
-
 .button__github {
   padding: 8px 20px;
   border: 1px solid #fff;
@@ -326,6 +343,154 @@ span {
 .button__github:hover {
   color: #000;
   background-color: #fff;
+}
+
+/* Portfolio */
+
+.portfolio {
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  transform: translate(100%, 0);
+  background: #111;
+  color: #fff;
+  font-family:'Helvetica Neue', sans-serif;
+  .portfolio__title {
+    display: flex;
+    color: $color1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 4%;
+    margin-top: 5%;
+    &:before {
+      content: "";
+      display: block;
+      height: 36px;
+      width: 10px;
+      background: red;
+      margin-right: 2%;
+    }
+  }
+  .portfolio__window {
+    position: relative;
+    width: 898px;
+    height: 517px;
+    background-color: #222222;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .window__buttons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      max-width: 8%;
+      margin: 2%;
+      .w-btn {
+        background-color: #fff;
+        height: 15px;
+        width: 15px;
+        border-radius: 15px;
+        position: fixed;
+      }
+      .w-btn:nth-child(1) {
+        background: red;
+      }
+      .w-btn:nth-child(2) {
+        background: yellow;
+        transform: translate(25px, 0);
+      }
+      .w-btn:nth-child(3) {
+        background: green;
+        transform: translate(50px, 0);
+      }
+    }
+    .window__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .window__card {
+        position: relative;
+        min-height: 208px;
+        min-width: 600px;
+        margin: 1%;
+        background: #303030;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .card__title {
+          display: inline-block;
+          margin-top: 20px;
+          margin-left: 41px;
+          align-self: flex-start;
+          font-size: 30px;
+          &:after {
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100px;
+            background: $color1;
+          }
+        }
+        .card__topics {
+          align-self: flex-end;
+          list-style-type: none;
+          margin-right: 71px;     
+          .card__topic {
+            font-size: 20px;
+            display: flex;
+            justify-content: flex-end;
+            &:after {
+              content: "";
+              display: block;
+              align-self: center;
+              height: 7px;
+              width: 7px;
+              border-radius: 10px;
+              margin: 8px;
+              background: #fff;
+            }
+          }
+          .card__topic:nth-chlid(1) {
+            &:after {
+              background: red ;
+            }
+          }
+        }
+        .card__btn {
+          position: absolute;
+          bottom: 0;
+          margin-bottom: 23px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: bold;
+          text-transform: uppercase;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          height: 32px;
+          width: 185px;
+        }
+      }
+    }
+  }
+}
+
+.portfolio-active {
+  animation: slideRight .4s ease;
+  animation-fill-mode: forwards;
 }
 
 /* Mobile */
@@ -343,6 +508,8 @@ span {
  .stats__bio {
    font-size: 12px;
  }
+ /* Portfolio */
+ 
 }
 @media (max-width: 500px) {
  .name-map__link {
@@ -352,3 +519,4 @@ span {
    text-align: center;
  }
 }
+
