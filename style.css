@@ -11,11 +11,27 @@ span {
   padding: 1px;
 }
 
+.card__purple-btn {
+  background: #984480;
+  color: #fff;
+}
+
+.card__simple-btn {
+  background: #86FEB6;
+  color: #000;
+}
+
+.card__defualt-btn {
+  background: #C25F5F;
+  color: #fff;
+}
+
 /* Developed by Alex Zolotarov */
 .wrapper {
   display: grid;
   position: relative;
   max-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Container */
@@ -179,12 +195,28 @@ span {
     transform: translate(0, 0);
   }
 }
-@keyframes slideHome {
+@keyframes slideLeftHome {
   0% {
     transform: translate(0, 0);
   }
   100% {
     transform: translate(-100%, 0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes slideRightHome {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
   }
 }
 /* About */
@@ -222,7 +254,7 @@ span {
 }
 
 .about-home {
-  animation: slideHome 0.8s ease;
+  animation: slideLeftHome 0.8s ease;
   animation-fill-mode: forwards;
 }
 
@@ -296,13 +328,6 @@ span {
   max-width: 720px;
 }
 
-.about__buttons {
-  align-self: start;
-  justify-self: center;
-  grid-row: 3/4;
-  grid-column: 2/3;
-}
-
 .button__github {
   padding: 8px 20px;
   border: 1px solid #fff;
@@ -316,6 +341,161 @@ span {
 .button__github:hover {
   color: #000;
   background-color: #fff;
+}
+
+/* Portfolio */
+.portfolio {
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  transform: translate(100%, 0);
+  background: #111;
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+}
+.portfolio .portfolio__title {
+  display: flex;
+  color: #86FEB6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 4%;
+  margin-top: 5%;
+}
+.portfolio .portfolio__title:before {
+  content: "";
+  display: block;
+  height: 36px;
+  width: 10px;
+  background: red;
+  margin-right: 2%;
+}
+.portfolio .portfolio__window {
+  position: relative;
+  width: 898px;
+  height: 517px;
+  background-color: #222222;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.portfolio .portfolio__window .window__buttons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  max-width: 8%;
+  margin: 2%;
+}
+.portfolio .portfolio__window .window__buttons .w-btn {
+  background-color: #fff;
+  height: 15px;
+  width: 15px;
+  border-radius: 15px;
+  position: fixed;
+}
+.portfolio .portfolio__window .window__buttons .w-btn:nth-child(1) {
+  background: red;
+}
+.portfolio .portfolio__window .window__buttons .w-btn:nth-child(2) {
+  background: yellow;
+  transform: translate(25px, 0);
+}
+.portfolio .portfolio__window .window__buttons .w-btn:nth-child(3) {
+  background: green;
+  transform: translate(50px, 0);
+}
+.portfolio .portfolio__window .window__content {
+  top: 0;
+  margin-top: 30px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+.portfolio .portfolio__window .window__content .window__card {
+  position: relative;
+  height: 208px;
+  width: 600px;
+  margin: 1%;
+  background: #303030;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.portfolio .portfolio__window .window__content .window__card .card__title {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 41px;
+  align-self: flex-start;
+  font-size: 30px;
+}
+.portfolio .portfolio__window .window__content .window__card .card__title:after {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 100%;
+  background: #86FEB6;
+}
+.portfolio .portfolio__window .window__content .window__card .card__topics {
+  align-self: flex-end;
+  list-style-type: none;
+  margin-right: 71px;
+}
+.portfolio .portfolio__window .window__content .window__card .card__topics .card__topic {
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.portfolio .portfolio__window .window__content .window__card .card__topics .card__topic:after {
+  content: "";
+  display: block;
+  align-self: center;
+  height: 7px;
+  width: 7px;
+  border-radius: 10px;
+  margin: 8px;
+  background: #fff;
+}
+.portfolio .portfolio__window .window__content .window__card .card__topics .card__topic:nth-chlid(1):after {
+  background: red;
+}
+.portfolio .portfolio__window .window__content .window__card .card__btn {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  height: 32px;
+  width: 185px;
+  transition: all 0.3s ease;
+}
+.portfolio .portfolio__window .window__content .window__card .card__btn:hover {
+  color: #86FEB6;
+}
+
+.portfolio-active {
+  animation: slideRight 0.8s ease;
+  animation-fill-mode: forwards;
+}
+
+.portfolio-home {
+  animation: slideRightHome 0.8s ease;
+  animation-fill-mode: forwards;
 }
 
 /* Mobile */
@@ -333,6 +513,33 @@ span {
 
   .stats__bio {
     font-size: 12px;
+  }
+
+  /* Portfolio */
+  .portfolio .portfolio__window {
+    transform: translate(0, 5%);
+    width: 90%;
+  }
+  .portfolio .portfolio__window .window__buttons {
+    position: absolute;
+  }
+  .portfolio .portfolio__window .window__content {
+    width: 100%;
+  }
+  .portfolio .portfolio__window .window__content .window__card {
+    width: 80%;
+  }
+  .portfolio .portfolio__window .window__content .window__card .card__title {
+    align-self: center;
+    margin: 10px;
+  }
+  .portfolio .portfolio__window .window__content .window__card .card__topics {
+    align-self: center;
+    margin: 10px;
+  }
+  .portfolio .portfolio__window .window__content .window__card .card__btn {
+    align-self: center;
+    margin: 10px;
   }
 }
 @media (max-width: 500px) {
