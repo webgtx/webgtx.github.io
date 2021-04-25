@@ -230,6 +230,16 @@ $color3: #984480;
     transform: translate(100%, 0);
   }
 }
+
+ @keyframes flow-x {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  100% {
+    transform: translate(0, -10%) rotate(45deg); 
+  }
+ }
+
 /* About */
 
 .button-back {
@@ -400,6 +410,8 @@ $color3: #984480;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 8%;
+    margin-left: 10%;
 
     .window__buttons {
       position: absolute;
@@ -413,17 +425,19 @@ $color3: #984480;
         height: 15px;
         width: 15px;
         border-radius: 15px;
-        position: fixed;
       }
       .w-btn:nth-child(1) {
+        position: fixed;
         background: red;
       }
       .w-btn:nth-child(2) {
         background: yellow;
+        position: fixed;
         transform: translate(25px, 0);
       }
       .w-btn:nth-child(3) {
         background: green;
+        position: fixed;
         transform: translate(50px, 0);
       }
     }
@@ -505,6 +519,64 @@ $color3: #984480;
         }
       }
     }
+  }
+  .d-element:nth-child(1) {
+    position: absolute;
+    left: 20%;
+    display: block;
+    color: #fff;
+    transform: rotate(55deg);
+    font-size: 6rem;
+  }
+  .d-element:nth-child(2) {
+    position: absolute;
+    left: 10%;
+    top: 70%;
+    display: block;
+    color: #fff;
+    font-size: 3rem;
+
+    transform: rotate(35deg);
+
+  }
+  .d-element:nth-child(3) {
+    position: absolute;
+    display: block;
+    color: #fff;
+    right: 10%;
+    font-size: 4rem;
+  }
+  .d-element:nth-child(4) {
+    position: absolute;
+    display: block;
+    color: #fff;
+    top: 10%;
+    left: 40%;
+    font-size: 3rem;
+    transform: rotate(48deg);
+  }
+  .d-element:nth-child(5) {
+    position: absolute;
+    display: block;
+    color: #fff;
+    top: 10%;
+    right: 20%;
+    font-size: 5rem;
+    transform: rotate(28deg);
+  }
+  .d-element:nth-child(6) {
+    position: absolute;
+    display: block;
+    color: #fff;
+    bottom: 1%;
+    right: 20%;
+    font-size: 2rem;
+    transform: rotate(28deg);
+  }
+  .d-element {
+    animation: flow-x .8s ease;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 }
 

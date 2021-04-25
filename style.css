@@ -219,6 +219,14 @@ span {
     transform: translate(100%, 0);
   }
 }
+@keyframes flow-x {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  100% {
+    transform: translate(0, -10%) rotate(45deg);
+  }
+}
 /* About */
 .button-back {
   top: 0;
@@ -386,6 +394,8 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 8%;
+  margin-left: 10%;
 }
 .portfolio .portfolio__window .window__buttons {
   position: absolute;
@@ -400,17 +410,19 @@ span {
   height: 15px;
   width: 15px;
   border-radius: 15px;
-  position: fixed;
 }
 .portfolio .portfolio__window .window__buttons .w-btn:nth-child(1) {
+  position: fixed;
   background: red;
 }
 .portfolio .portfolio__window .window__buttons .w-btn:nth-child(2) {
   background: yellow;
+  position: fixed;
   transform: translate(25px, 0);
 }
 .portfolio .portfolio__window .window__buttons .w-btn:nth-child(3) {
   background: green;
+  position: fixed;
   transform: translate(50px, 0);
 }
 .portfolio .portfolio__window .window__content {
@@ -486,6 +498,62 @@ span {
 }
 .portfolio .portfolio__window .window__content .window__card .card__btn:hover {
   color: #86FEB6;
+}
+.portfolio .d-element:nth-child(1) {
+  position: absolute;
+  left: 20%;
+  display: block;
+  color: #fff;
+  transform: rotate(55deg);
+  font-size: 6rem;
+}
+.portfolio .d-element:nth-child(2) {
+  position: absolute;
+  left: 10%;
+  top: 70%;
+  display: block;
+  color: #fff;
+  font-size: 3rem;
+  transform: rotate(35deg);
+}
+.portfolio .d-element:nth-child(3) {
+  position: absolute;
+  display: block;
+  color: #fff;
+  right: 10%;
+  font-size: 4rem;
+}
+.portfolio .d-element:nth-child(4) {
+  position: absolute;
+  display: block;
+  color: #fff;
+  top: 10%;
+  left: 40%;
+  font-size: 3rem;
+  transform: rotate(48deg);
+}
+.portfolio .d-element:nth-child(5) {
+  position: absolute;
+  display: block;
+  color: #fff;
+  top: 10%;
+  right: 20%;
+  font-size: 5rem;
+  transform: rotate(28deg);
+}
+.portfolio .d-element:nth-child(6) {
+  position: absolute;
+  display: block;
+  color: #fff;
+  bottom: 1%;
+  right: 20%;
+  font-size: 2rem;
+  transform: rotate(28deg);
+}
+.portfolio .d-element {
+  animation: flow-x 0.8s ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .portfolio-active {
