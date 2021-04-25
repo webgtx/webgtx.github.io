@@ -19,6 +19,11 @@ $color3: #984480;
   color: #fff;
 }
 
+.card__simple-btn {
+  background: $color1;
+  color: #000;
+}
+
 .card__defualt-btn {
   background: $color2;
   color: #fff;
@@ -217,7 +222,14 @@ $color3: #984480;
     transform: translate(0, 0);
   }
 }
-
+@keyframes slideRightHome {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
+  }
+}
 /* About */
 
 .button-back {
@@ -416,15 +428,19 @@ $color3: #984480;
       }
     }
     .window__content {
+      top: 0;
+      margin-top: 30px;
+      position: absolute;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 100%;
+      height: auto;
+
       .window__card {
         position: relative;
-        min-height: 208px;
-        min-width: 600px;
+        height: 208px;
+        width: 600px;
         margin: 1%;
         background: #303030;
         display: flex;
@@ -441,7 +457,7 @@ $color3: #984480;
             content: "";
             display: block;
             height: 5px;
-            width: 100px;
+            width: 100%;
             background: $color1;
           }
         }
@@ -470,7 +486,7 @@ $color3: #984480;
             }
           }
         }
-        .card__btn {
+        .card__btn {          
           position: absolute;
           bottom: 0;
           margin-bottom: 23px;
@@ -482,6 +498,10 @@ $color3: #984480;
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
           height: 32px;
           width: 185px;
+          transition: all .3s ease;
+          &:hover {
+            color: $color1;
+          }
         }
       }
     }
@@ -489,7 +509,12 @@ $color3: #984480;
 }
 
 .portfolio-active {
-  animation: slideRight .4s ease;
+  animation: slideRight .8s ease;
+  animation-fill-mode: forwards;
+}
+
+.portfolio-home {
+  animation: slideRightHome .8s ease;
   animation-fill-mode: forwards;
 }
 
@@ -497,19 +522,45 @@ $color3: #984480;
 
 @media (max-width: 800px) {
   /* Name Map */
- .name-map__link {
-   font-size: 50px;
- }
- .about__wrapper {
-   display: grid;
-   grid-template: 1fr .6fr / 1fr ;
-   min-height: 100vh;
- }   
- .stats__bio {
-   font-size: 12px;
- }
+  .name-map__link {
+    font-size: 50px;
+  }
+  .about__wrapper {
+    display: grid;
+    grid-template: 1fr .6fr / 1fr ;
+    min-height: 100vh;
+  }   
+  .stats__bio {
+    font-size: 12px;
+  }
  /* Portfolio */
- 
+  .portfolio {
+    .portfolio__window {
+      transform: translate(0, 5%);
+      width: 90%;
+      .window__buttons {
+        position: absolute;
+      }
+      .window__content {
+        width: 100%;
+        .window__card {
+          width: 80%;
+          .card__title {
+            align-self: center;
+            margin: 10px;
+          }
+          .card__topics {
+            align-self: center;
+            margin: 10px;
+          }
+          .card__btn {
+            align-self: center;
+            margin: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 @media (max-width: 500px) {
  .name-map__link {
